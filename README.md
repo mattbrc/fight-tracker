@@ -1,7 +1,7 @@
 # to do
 
-- [ ] make it deploy (vercel)
-- [ ] scaffold basic ui
+- [x] make it deploy (vercel)
+- [x] scaffold basic ui
 - [ ] actually set up db (vercel postgres)
 - [ ] attach db to ui
 - [ ] add auth (clerk)
