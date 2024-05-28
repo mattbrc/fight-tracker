@@ -2,6 +2,7 @@
 
 - [x] make it deploy (vercel)
 - [x] scaffold basic ui
+- [x] tidy up build process
 - [ ] actually set up db (vercel postgres)
 - [ ] attach db to ui
 - [ ] add auth (clerk)
