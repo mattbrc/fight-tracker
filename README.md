@@ -9,6 +9,6 @@
 - [ ] add image upload
 - [ ] error management (w/ sentry)
 - [ ] routing/image page (parallel route)
-- [ ] delete butto
+- [ ] delete button
 - [ ] analytics (posthog)
 - [ ] ratelimitting (upstash)
