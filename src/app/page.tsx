@@ -26,21 +26,11 @@ export default async function HomePage() {
     <main className="">
       <SignedOut>
         <div className="h-full w-full text-center text-2xl">
-          Please sign in above
+          <p>Degenerate gamblers unite</p>
         </div>
       </SignedOut>
       <SignedIn>
         <Images />
-        {/* <div>
-          <p>
-            Are you a degenerate gambler and want to keep betting without
-            putting real money (and your marriage) on the line?
-          </p>
-          <p>User Card</p>
-          <p>Total picks: 0</p>
-          <p>Win %: </p>
-          <p>Rank: 0</p>
-        </div> */}
       </SignedIn>
     </main>
   );

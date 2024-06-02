@@ -4,6 +4,7 @@ import "@uploadthing/react/styles.css";
 import { GeistSans } from "geist/font/sans";
 import { ClerkProvider } from "@clerk/nextjs";
 import { TopNav } from "./_components/topnav";
+import { Toaster } from "sonner";
 
 export const metadata = {
   title: "Fight Tracker",
@@ -18,10 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable}`}>
+      <html lang="en" className={`${GeistSans.variable} dark`}>
         <body className="flex flex-col gap-4">
           <TopNav />
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
