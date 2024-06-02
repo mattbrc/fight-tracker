@@ -1,12 +1,13 @@
 import "~/styles/globals.css";
+import "@uploadthing/react/styles.css";
 
 import { GeistSans } from "geist/font/sans";
 import { ClerkProvider } from "@clerk/nextjs";
 import { TopNav } from "./_components/topnav";
 
 export const metadata = {
-  title: "T3 Gallery",
-  description: "yt tut theo",
+  title: "Fight Tracker",
+  description: "Ranked Fight Picks.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
