@@ -20,23 +20,6 @@ import {
  */
 export const createTable = pgTableCreator((name) => `fight_tracker_${name}`);
 
-// export const images = createTable(
-//   "image",
-//   {
-//     id: serial("id").primaryKey(),
-//     name: varchar("name", { length: 256 }).notNull(),
-//     url: varchar("url", { length: 1024 }).notNull(),
-//     userId: varchar("userId", { length: 256 }).notNull(),
-//     createdAt: timestamp("created_at", { withTimezone: true })
-//       .default(sql`CURRENT_TIMESTAMP`)
-//       .notNull(),
-//     updatedAt: timestamp("updatedAt", { withTimezone: true }),
-//   },
-//   (example) => ({
-//     nameIndex: index("name_idx").on(example.name),
-//   })
-// );
-
 export const fightCards = createTable(
   "fight_cards",
   {
@@ -46,6 +29,7 @@ export const fightCards = createTable(
     fighter2Name: varchar("fighter2_name", { length: 255 }).notNull(),
     fightDate: date("fight_date").notNull(),
     weightClass: varchar("weight_class", { length: 255 }),
+    outcome: varchar("outcome", { length: 255 }),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),

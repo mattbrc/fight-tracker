@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { getUserPicksCount } from "~/server/queries";
+import { getUserPicksCount, getUserWinPercentage } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 
@@ -18,6 +18,9 @@ async function UserCard() {
   const user = await currentUser();
   console.log("user id: ", user?.id);
   const userCount = await getUserPicksCount();
+  const winPercentage = await getUserWinPercentage();
+
+  console.log("win perc: ", winPercentage);
   const username = user?.username;
 
   return (
@@ -32,12 +35,12 @@ async function UserCard() {
         </div>
         <div className="flex justify-between">
           <p>Win Percentage:</p>
-          <p>0%</p>
+          <p>{winPercentage.toFixed(2) ?? 0}%</p>
         </div>
-        <div className="flex justify-between">
+        {/* <div className="flex justify-between">
           <p>Rank:</p>
           <p>0</p>
-        </div>
+        </div> */}
       </CardContent>
     </Card>
   );
@@ -52,16 +55,19 @@ async function Fights() {
 
   return (
     <div className="flex flex-col gap-4">
-      {[...fights, ...fights, ...fights].map((fight) => (
+      {[...fights].map((fight) => (
         <Card key={fight.fightId} className="w-[380px]">
           <CardHeader>
             <CardTitle>{fight.eventName}</CardTitle>
-            <CardDescription>{fight.fightDate}</CardDescription>
+            <div className="flex justify-between">
+              <CardDescription>{fight.fightDate}</CardDescription>
+              <CardDescription>{fight.weightClass}</CardDescription>
+            </div>
           </CardHeader>
-          <CardContent>
-            <h1>{fight.fighter1Name}</h1>
-            <p>vs</p>
-            <h1>{fight.fighter2Name}</h1>
+          <CardContent className="flex flex-col items-center">
+            <h1 className="font-bold">{fight.fighter1Name}</h1>
+            <CardDescription>vs</CardDescription>
+            <h1 className="font-bold">{fight.fighter2Name}</h1>
           </CardContent>
         </Card>
       ))}

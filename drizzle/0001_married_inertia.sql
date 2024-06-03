@@ -1,0 +1,1 @@
+DROP TABLE "fight_tracker_fight_cards";
